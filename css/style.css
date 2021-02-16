@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#logo {
+	font-size: 3rem;
+}
+
+h2 {
+	text-align: center;
+	color: #58a7ed;
+	margin-bottom: 3rem;
+}
+
+.select-city {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 3rem;
+}
+
+.btn-cities {
+	width: 7rem;
+	height: 2.5rem;
+	border-radius: 10px;
+	border: 2px solid #eb3d3d;
+	font-size: 2rem;
+	cursor: pointer;
+	background: #eda642;
+	color: #fff;
+	text-align: center;
+}
+
+.weather-card {
+	box-shadow: 0 0 5px blue;
+	display: inline-flex;
+	width: 16rem;
+	flex-direction: column;
+	margin-left: 6rem;
+}
+
+.descriptions {
+	margin: 10px;
+}
+
+.name-city {
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.temp-block {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 2rem;
+}
