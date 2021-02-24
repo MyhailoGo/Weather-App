@@ -2,7 +2,7 @@ const buttonsCities = document.querySelectorAll(".btn-cities");
 const imgIcons = document.querySelector("#img-icons");
 const options = {
   timeOfTheDayNow: "",
-}
+};
 
 
 
@@ -10,13 +10,13 @@ selectCity("lutsk");
 
 buttonsCities.forEach((cityButton) => {
   cityButton.addEventListener("click", () => {
-    selectCity(cityButton.dataset.city)
+    selectCity(cityButton.dataset.city);
   }
   );
 });
 
 
- function selectCity(cityName) {
+function selectCity(cityName) {
   getDate();
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=111d8d44f58751fb5cc404f71f53e329`
@@ -36,7 +36,7 @@ buttonsCities.forEach((cityButton) => {
       
     })
     .catch((err)=>alert("Не вдалося отримати дані з сервера"))
-}
+};
 
 
 function getDate() {
@@ -50,13 +50,13 @@ function getDate() {
   document.querySelector(".date").innerText = 
 	`${d.getDate()} ${month[d.getMonth()]}, ${day[d.getDay()]}, ${hours}:${minutes}`;
 
-  getTimeOfDay(hours)
+  getTimeOfDay(hours);
 };
 
 
 function getTimeOfDay(timeNow){
 timeNow>4 && timeNow<19 ? options.timeOfTheDayNow ="day" : options.timeOfTheDayNow ="night";
-}
+};
 
 function weatherCondition(weather){
   let weatherNow = "";
@@ -95,8 +95,8 @@ function weatherCondition(weather){
   }
 
   return weatherNow;
-}
+};
 
 function addImgIcons(timeOfTheDay,weatherNow){
   imgIcons.src = `img/${timeOfTheDay}/icons-${weatherNow}.png`
-}
+};
