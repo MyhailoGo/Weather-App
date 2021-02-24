@@ -32,11 +32,16 @@ h2 {
 }
 
 .weather-card {
-	box-shadow: 0 0 5px blue;
+	box-shadow: 0 0 2px #ccc;
 	display: inline-flex;
 	width: 16rem;
 	flex-direction: column;
 	margin-left: 6rem;
+	transition: .5s;
+}
+
+.weather-card:hover {
+	box-shadow: 0 0 5px blue;
 }
 
 .descriptions {
@@ -54,3 +59,4 @@ h2 {
 	align-items: center;
 	font-size: 2rem;
 }
+
