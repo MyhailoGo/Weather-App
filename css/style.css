@@ -3,6 +3,25 @@
 	padding: 0;
 }
 
+.logo-block {
+	margin: 2rem 0 0 3rem ;
+	border: 1px solid rgb(248, 169, 50);
+	box-sizing: border-box;
+	border-radius: 10px;
+	display: inline-block;
+	padding: 1rem;
+	cursor: pointer;
+	transition: .5s;
+	color: #ccc;
+	
+}
+
+.logo-block:hover {
+	background: #ebebeb;
+	box-shadow: 0 0 5px #ff8800;
+	color: #fff;
+}
+
 #logo {
 	font-size: 3rem;
 }
@@ -23,12 +42,20 @@ h2 {
 	width: 7rem;
 	height: 2.5rem;
 	border-radius: 10px;
-	border: 2px solid #eb3d3d;
+	box-sizing: border-box;
 	font-size: 2rem;
 	cursor: pointer;
 	background: #eda642;
 	color: #fff;
 	text-align: center;
+	transition: border-radius .6s, background .5s, color .8s , border-bottom .5s;
+}
+
+.btn-cities:hover {
+	background: #fff;
+	color: #eda642;
+	border-radius: 0;
+	border-bottom: 1px solid #eda642;
 }
 
 .weather-card {
@@ -36,8 +63,10 @@ h2 {
 	display: inline-flex;
 	width: 16rem;
 	flex-direction: column;
+	border-radius: 10px;
 	margin-left: 6rem;
 	transition: .5s;
+	
 }
 
 .weather-card:hover {

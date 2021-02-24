@@ -9,10 +9,7 @@ const options = {
 selectCity("lutsk");
 
 buttonsCities.forEach((cityButton) => {
-  cityButton.addEventListener("click", () => {
-    selectCity(cityButton.dataset.city);
-  }
-  );
+  cityButton.addEventListener("click", () => selectCity(cityButton.dataset.city));
 });
 
 
@@ -24,8 +21,8 @@ function selectCity(cityName) {
     .then((res) => res.json())
     .then( (res) => {
       
-      let weatherDescrip = weatherCondition(res.weather[0].description)
-      addImgIcons(options.timeOfTheDayNow,weatherDescrip)
+      let weatherDescrip = weatherCondition(res.weather[0].description);
+      addImgIcons(options.timeOfTheDayNow,weatherDescrip);
       
       document.querySelector(".temp").innerText =
         Math.round(res.main.temp - 273) + " °C";
