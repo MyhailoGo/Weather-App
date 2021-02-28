@@ -58,6 +58,10 @@ h2 {
 	border-bottom: 1px solid #eda642;
 }
 
+.weather-block {
+	display: flex;
+}
+
 .weather-card {
 	box-shadow: 0 0 2px #ccc;
 	display: inline-flex;
@@ -87,5 +91,31 @@ h2 {
 	justify-content: space-around;
 	align-items: center;
 	font-size: 2rem;
+}
+
+.weather-list {
+	display: flex;
+}
+
+.weather-item {
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 5px;
+	margin: 0 10px;
+	background: rgba(170, 169, 169, 0.2)
+	
+}
+
+.time-item {
+	padding: 10px 2px;
+	color: #f85c14;
+	font-weight: 700;
+}
+
+.temp-item {
+	font-weight: 700;
+	font-size: 20px;
+	margin-top: 20px;
 }
 
