@@ -159,3 +159,38 @@ function changeWeatherItem(res){
         Math.round(res.list[i].main.temp - 273) +" °C";
   }
 };
+
+
+(function(){
+  const btnPrev = document.querySelector(".prev"),
+      btnNext = document.querySelector(".next"),
+      gallery = document.querySelector(".weather-list");
+  let next = 0,
+    prev = 0,
+    position=0;
+
+
+  btnPrev.addEventListener("click", ()=>{
+    if(position===0){
+      return;
+    }
+    else{
+      position += 100;
+      prev = position;
+      console.log("next:",next, "prev:",prev, "pos: ", position);
+      gallery.style.transform = `translate(${prev}px)`; 
+  }
+});
+
+  btnNext.addEventListener("click", ()=>{
+    if(position===-600){
+      return;
+    }
+    else {
+      position -=100
+      next = position;
+      console.log("next:",next, "prev:",prev, "pos: ", position);
+      gallery.style.transform = `translate(${next}px)`;
+    }
+});
+})()
