@@ -4,7 +4,14 @@
 }
 
 body {
-	background-color: black;
+	box-sizing: border-box;
+	background-image: url(../img/cities/london.jpg);
+	background-size: 100vw 100vh;
+	background-repeat: no-repeat;
+	-webkit-transition: 1s ease-in-out;
+    -moz-transition:  1s ease-in-out;
+    -o-transition:  1s ease-in-out;
+    transition:  1s ease-in-out;
 }
 
 .header {
@@ -19,20 +26,22 @@ body {
 .logo-block {
 	min-width: 200px;
 	margin: .5rem 0 0 3rem ;
-	border: 1px solid rgb(248, 169, 50);
+	border: 1px solid rgb(252, 251, 251);
 	box-sizing: border-box;
 	border-radius: 10px;
 	display: inline-block;
 	padding: 1rem;
 	cursor: pointer;
-	transition: .8s;
-	color: #ccc;
+	color: white;
+	-webkit-transition: .8s;
+    -moz-transition:  .8s;
+    -o-transition:  .8s;
+    transition:  .8s;
 }
 
 .logo-block:hover {
-	background: #ff8800;
+	background: rgb(146 211 255 / 20%);
 	box-shadow: 0 0 5px #ff8800;
-	color: black;
 }
 
 #logo {
@@ -53,59 +62,61 @@ body {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	margin-top: 10px;
 }
 
 .btn-cities {
 	min-width: 3rem;
 	width: 7rem;
 	height: 2.5rem;
-	margin: 0 10px;
+	margin: 2px 10px;
 	box-sizing: border-box;
 	font-size: 2rem;
 	color: #fff;
 	text-align: center;
 	cursor: pointer;
-	background: rgba(243, 106, 27, 0.938);;
+	background: rgb(232 218 209 / 28%);
 	border-radius: 10px;
-	transition: border-radius .6s, background .5s, color .8s , border-bottom .5s;
+	transition: border-radius .6s, background .5s, color .8s , border-bottom .5s , transform .8s;
 }
 
 .btn-cities:hover {
-	background: #fff;
-	color: rgba(243, 106, 27, 0.938);;
-	
-	border-bottom: 1px solid rgba(243, 106, 27, 0.938);;
+	background: none;
+	color: rgba(243, 106, 27, 0.938);
+	transform: scale(1.1);
 }
 
 .main {
 	min-width: 320px;
 }
 
-
-
 .weather-block {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
 }
 
 .weather-card {
 	box-shadow: 0 0 5px #ccc;
+	background: rgb(232 218 209 / 28%);
 	display: inline-flex;
 	flex-direction: column;
 	width: 16rem;
 	min-width: 320px;
-	color: rgb(199, 202, 250);
-	margin: 20px 0 30px 0;
+	color: #fff;
+	margin: 20px 0 30px 3rem;
 	border-radius: 10px;
-	transition: .5s;
+	-webkit-transition: .5s;
+    -moz-transition:  .5s;
+    -o-transition:  .5s;
+    transition:  .5s;
 	
 }
 
 .weather-card:hover {
 	box-shadow: 0 0 5px rgba(243, 106, 27, 0.938);
+	background: rgb(232 218 209 / 38%);
+	transform: scale(1.05);
 }
 
 .descriptions {
@@ -123,8 +134,6 @@ body {
 	align-items: center;
 	font-size: 2rem;
 }
-
-
 
 .time-item {
 	padding: 10px 2px;
@@ -149,7 +158,7 @@ body {
 
 /* slider */
 
-.main {
+.slider-block {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -183,13 +192,13 @@ body {
 	border-radius: 4px;
 	padding: 5px;
 	/* margin: 0 10px; */
-	background: rgba(243, 106, 27, 0.938);
+	background: rgb(232 218 209 / 28%);
 	color: white;
 	transition: .8s;
 }
 
 .weather-item:hover {
-	background: rgba(255, 255, 255, 1);
+	background: rgba(255, 255, 255, .5);
 	color: rgba(243, 106, 27, 0.938);
 }
   
@@ -202,7 +211,7 @@ body {
   }
   
   .svg-arrow path{
-	fill: black; 
+	fill: rgb(232 218 209 / 28%);
 	stroke: rgba(243, 106, 27, 0.938);
 	stroke-width: 10;
 	transition: .6s ease-in-out;
@@ -212,13 +221,68 @@ body {
   .svg-arrow:hover path {
 	  stroke: #fff;
 	  width: 60;
-	  fill: rgba(243, 106, 27, 0.938);
+	  
 	}
 
-@media (max-width: 630px){
+@media (max-width: 767px){
 	.logo-block {
-		margin: 0 5px;
+		width: 50%;
+		margin: 5px 0 0 5px;
 	}
+
+	.select-city {
+		justify-content: flex-start;
+	}
+	.btn-cities {
+		width: 50%;
+	}
+}
+
+@media (max-width: 440px){
+	.weather-card {
+		margin: 20px auto 30px auto;
+	}
+	.slider-block {
+		flex-direction: column;
+
+	}
+
+	.slider {
+		width: auto;
+		height: 600px;
+	}
+
+	.wrapper {
+		width: auto;
+    	height: 100%;
+	}
+
+	
+	.prev, .next {
+		transform: rotate(90deg);
+	}
+
+	.weather-list {
+		flex-direction: column;
+
+	}
+
+	.weather-item {
+		display: flex;
+		height: 100px;
+		width: 220px;
+		box-sizing: border-box;
+	}
+	
+	.time-item span {
+		display: block;
+	}
+
+	.img-item-block {
+		text-align: center;
+		padding: 0 10px;
+	}
+	
 }
 
 

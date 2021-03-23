@@ -5,6 +5,8 @@ const options = {
   timeOfTheDayNow: "",
 };
 
+const delay = async (ms) => await new Promise(resolve => setTimeout(resolve, ms));
+
 
 addWeatherItem(); // створюємо другорядні елементи для показу погоди на наступні години
 selectCity("lutsk");
@@ -16,7 +18,11 @@ buttonsCities.forEach((cityButton) => {
 
 
 function selectCity(cityName) {
-  
+  changeBgImg(cityName);
+
+  if(cityName==="rome"){
+    cityName = "rome, IT"
+  }
  
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=111d8d44f58751fb5cc404f71f53e329`
@@ -47,6 +53,7 @@ function selectCity(cityName) {
         changeWeatherItem(res);
       })
       .catch(err=>console.log(err))
+      
 };
 
 
@@ -161,13 +168,25 @@ function changeWeatherItem(res){
 };
 
 
+function changeBgImg(cityName){
+  document.body.style.backgroundImage = `url(./img/cities/${cityName}.jpg)`;
+}
+
+
 (function(){
   const btnPrev = document.querySelector(".prev"),
-      btnNext = document.querySelector(".next"),
-      gallery = document.querySelector(".weather-list");
-  let next = 0,
-    prev = 0,
-    position=0;
+        btnNext = document.querySelector(".next"),
+        gallery = document.querySelector(".weather-list");
+  let position=0;
+
+     window.addEventListener("resize", e=>{
+      if(document.body.clientWidth <= 440){
+        gallery.style.transform = `translate(0,${position}px)`;
+      }
+      else {
+        gallery.style.transform = `translate(${position}px, 0)`;
+      }
+     })
 
 
   btnPrev.addEventListener("click", ()=>{
@@ -176,9 +195,11 @@ function changeWeatherItem(res){
     }
     else{
       position += 100;
-      prev = position;
-      console.log("next:",next, "prev:",prev, "pos: ", position);
-      gallery.style.transform = `translate(${prev}px)`; 
+      console.log( "pos: ", position);
+      if(document.body.clientWidth <= 440){
+        gallery.style.transform = `translate(0,${position}px)`;
+      }
+      else gallery.style.transform = `translate(${position}px)`;
   }
 });
 
@@ -188,9 +209,12 @@ function changeWeatherItem(res){
     }
     else {
       position -=100
-      next = position;
-      console.log("next:",next, "prev:",prev, "pos: ", position);
-      gallery.style.transform = `translate(${next}px)`;
+      console.log("pos: ", position);
+      if(document.body.clientWidth <= 440){
+        gallery.style.transform = `translate(0,${position}px)`;
+      }
+      else gallery.style.transform = `translate(${position}px)`;
+      
     }
 });
 })()
